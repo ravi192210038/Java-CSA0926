@@ -1,0 +1,29 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class SpecialCharactersInLine {
+
+    public static void main(String[] args) {
+        String inputLine = "This line contains a special character: @";
+
+        if (containsSpecialCharacters(inputLine)) {
+            System.out.println("The line contains special characters.");
+        } else {
+            System.out.println("The line does not contain special characters.");
+        }
+    }
+
+    private static boolean containsSpecialCharacters(String line) {
+        // Define a regular expression for special characters
+        String regex = "[^a-zA-Z0-9\\s]";
+
+        // Create a Pattern object
+        Pattern pattern = Pattern.compile(regex);
+
+        // Create a Matcher object
+        Matcher matcher = pattern.matcher(line);
+
+        // Check if the line contains any special characters
+        return matcher.find();
+    }
+}
